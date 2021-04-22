@@ -1,0 +1,7 @@
+- hosts: aws-ec2 
+  tasks:
+      - name: Set authorized 
+        authorized_key:
+            user: ec2-user
+            state: present
+            key: "{{ lookup('file', '/root/.ssh/jindi.pub') }}"
